@@ -39,12 +39,12 @@ The portfolio is fully responsive and works seamlessly across:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/FaissalMarzouki/PORTFOLIO-2025.git
 ```
 
 2. Open the project folder:
 ```bash
-cd portfolio
+cd PORTFOLIO-2025
 ```
 
 3. Open `index.html` in your browser or use a local server:

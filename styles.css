@@ -61,12 +61,39 @@ a:hover {
     display: flex;
     align-items: center;
     font-family: var(--font-mono);
+    justify-content: center;
+    text-align: center;
 }
 
 .section-title span {
     color: var(--accent-green);
     margin-right: 10px;
     font-family: var(--font-mono);
+}
+
+/* Add margin for section content */
+section > .about-content,
+section > .skills-container,
+section > .projects-grid,
+section > .cert-container,
+section > .contact-content,
+section > .project-categories,
+section > .featured {
+    margin: 0 auto;
+    padding: 0 30px;
+    max-width: 1100px;
+}
+
+/* Adjust category titles in projects section */
+.category-title {
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    margin: 40px auto 20px;
+    padding-left: 15px;
+    border-left: 3px solid var(--accent-green);
+    max-width: 1100px;
+    text-align: center;
 }
 
 /* Header & Navigation */
@@ -437,15 +464,6 @@ nav ul li a:hover::after {
     margin-top: 60px;
 }
 
-.category-title {
-    color: var(--accent-green);
-    font-family: var(--font-mono);
-    font-size: 1.4rem;
-    margin: 40px 0 20px;
-    padding-left: 15px;
-    border-left: 3px solid var(--accent-green);
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
@@ -650,6 +668,7 @@ nav ul li a:hover::after {
     border-radius: 8px;
     padding: 20px;
     transition: var(--transition);
+    border-left: 3px solid transparent;
 }
 
 .cert-item:hover {
@@ -657,19 +676,51 @@ nav ul li a:hover::after {
     box-shadow: -5px 0 0 var(--accent-green);
 }
 
+.cert-item.in-progress {
+    border-left: 3px solid var(--accent-green-dark);
+    background: linear-gradient(145deg, var(--bg-secondary), var(--bg-primary));
+}
+
+.cert-item.in-progress .cert-icon i {
+    animation: spin 2s linear infinite;
+}
+
+.cert-item.in-progress:hover {
+    border-left: 3px solid var(--accent-green);
+    box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .cert-icon {
     margin-right: 20px;
     font-size: 2rem;
     color: var(--accent-green);
+    width: 40px;
+    text-align: center;
 }
 
 .cert-details h3 {
     margin-bottom: 5px;
+    color: var(--text-primary);
 }
 
 .cert-details p {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+.cert-details .highlight {
+    color: var(--accent-green);
+    font-family: var(--font-mono);
 }
 
 /* Contact Section */
@@ -825,32 +876,28 @@ footer p {
 }
 
 .project-card.featured {
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
     background: linear-gradient(165deg, var(--bg-secondary), var(--bg-primary));
     border-width: 2px;
-}
-
-@media (min-width: 992px) {
-    .project-card.featured {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.project-card.featured:hover {
-    transform: translateY(-10px) scale(1.01);
-    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.4),
-                0 0 25px rgba(0, 255, 65, 0.15);
+    padding: 20px;
 }
 
 .project-card.featured .project-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+}
+
+.project-card.featured p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 12px;
 }
 
 .project-card.featured .project-gallery {
@@ -858,88 +905,61 @@ footer p {
     position: relative;
     overflow: hidden;
     border-radius: 6px;
-    border: 1px solid var(--accent-green-dark);
+    border: 2px solid var(--accent-green-dark);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .project-card.featured .gallery-main {
     max-height: 220px;
     overflow: hidden;
     position: relative;
-}
-
-.project-card.featured .gallery-main::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.05));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card.featured:hover .gallery-main::after {
-    opacity: 1;
-}
-
-.project-card.featured .gallery-main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card.featured:hover .gallery-main img {
-    transform: scale(1.05);
+    border: none;
+    margin-bottom: 0;
 }
 
 .project-card.featured .gallery-thumbnails {
-    gap: 5px;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--accent-green-dark);
 }
 
 .project-card.featured .gallery-thumbnails img {
-    width: 45px;
-    height: 35px;
-    border: 1px solid var(--accent-green-dark);
+    width: 60px;
+    height: 45px;
+    border: 2px solid var(--accent-green-dark);
     transition: all 0.3s ease;
 }
 
-.project-card.featured .gallery-thumbnails img:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-green);
-    box-shadow: 0 5px 10px rgba(0, 255, 65, 0.2);
-}
-
-.project-card.featured .project-header h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-}
-
-.project-card.featured p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
 .project-card.featured .gallery-caption {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    border-left: 2px solid var(--accent-green);
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--accent-green-dark);
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
-.project-card.featured .project-tech {
-    gap: 8px;
+@media (min-width: 992px) {
+    .project-card.featured {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+    
+    .project-card.featured .project-content {
+        padding-right: 12px;
+    }
 }
 
-.project-card.featured .project-tech span {
-    font-size: 0.8rem;
-    padding: 4px 10px;
+@media (max-width: 768px) {
+    .project-card.featured {
+        padding: 15px;
+    }
+    
+    .project-card.featured .gallery-main {
+        max-height: 180px;
+    }
+    
+    .project-card.featured .gallery-thumbnails img {
+        width: 45px;
+        height: 35px;
+    }
 } 

@@ -104,7 +104,7 @@ function createMatrixRain() {
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.zIndex = '-2';
-    canvas.style.opacity = '0.05';
+    canvas.style.opacity = '0.15';
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
@@ -123,11 +123,11 @@ function createMatrixRain() {
 
     function draw() {
         // Semi-transparent black to create the fade effect
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = '#00ff41'; // Matrix green
-        ctx.font = '15px "Courier New"';
+        ctx.fillStyle = '#0aff41';
+        ctx.font = '18px "Courier New"';
 
         // Draw characters
         for (let i = 0; i < drops.length; i++) {
