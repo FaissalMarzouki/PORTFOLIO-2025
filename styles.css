@@ -32,6 +32,9 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    zoom: 150%;
+    -moz-transform: scale(1.5);
+    -moz-transform-origin: 0 0;
 }
 
 a {
