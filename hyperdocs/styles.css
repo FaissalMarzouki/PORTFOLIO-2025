@@ -1,0 +1,90 @@
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: #0a0a0a;
+    color: #00ff00;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #1a1a1a;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #00ff00;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.tree-container {
+    text-align: left;
+    padding: 20px;
+    border: 1px dashed #00ff00;
+    border-radius: 5px;
+}
+
+.tree {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tree ul {
+    list-style: none;
+    padding-left: 20px;
+    border-left: 1px dotted #00ff00;
+    margin-left: 5px;
+}
+
+.tree li {
+    margin: 8px 0;
+}
+
+.tree-node {
+    cursor: pointer;
+    font-weight: bold;
+    color: #00ffff; /* Cyan for folders */
+}
+
+.tree-node i {
+    margin-right: 8px;
+}
+
+.tree a {
+    color: #00ff00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.tree a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.tree a i {
+    margin-right: 8px;
+}
+
+/* Optional: Basic responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+} 
